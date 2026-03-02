@@ -1,0 +1,9 @@
+dataclasses
+logging
+typing
+joblib
+python-box
+ensure
+kaggle
+PyYAML
+-e .

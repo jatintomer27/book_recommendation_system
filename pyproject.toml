@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "book_recommendation_system"
+version = "0.1.0"
+description = """
+machine learning package for recommending
+book based on Collaborative filtering.
+"""
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Jatin Tomer", email = "jatintomer27@gmail.com" }
+]
+requires-python= ">=3.11"
+keywords = [
+    "machine-learning",
+    "book-recommendation-system",
+    "ml"
+]
+dependencies = [
+    "pandas",
+    "numpy",
+    "kaggle",
+]
+
+
+[project-urls]
+Homepage = "https://github.com/jatintomer27/book_recommendation_system"
+Repository = "https://github.com/jatintomer27/book_recommendation_system"
+
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

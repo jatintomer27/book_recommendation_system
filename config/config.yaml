@@ -1,0 +1,29 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  kaggle_dataset: "saurabhbagchi/books-dataset"
+  file: ["books.csv", "ratings.csv", "users.csv"]
+  local_data_file: [
+    "artifacts/data_ingestion/books_data/books.csv", 
+    "artifacts/data_ingestion/books_data/ratings.csv", 
+    "artifacts/data_ingestion/books_data/users.csv"
+  ]
+  data_dir: artifacts/data_ingestion
+
+data_validation:
+  root_dir: artifacts/data_validation
+  files: ["books.csv", "ratings.csv", "users.csv"]
+  data_dir: artifacts/data_ingestion/books_data
+  status_file: "artifacts/data_validation/status.txt"
+  status_message_file: "artifacts/data_validation/status_message.txt"
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  local_data_file: [
+    "artifacts/data_ingestion/books_data/books.csv", 
+    "artifacts/data_ingestion/books_data/ratings.csv", 
+    # "artifacts/data_ingestion/books_data/users.csv"
+  ]
+  processed_data_path: artifacts/data_transformation
+

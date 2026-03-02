@@ -1,0 +1,14 @@
+# Contains the schema of the data
+
+books:
+  ISBN: ISBN
+  Book-Title: title
+  Book-Author: author
+  Year-Of-Publication: year
+  Publisher: publisher
+  Image-URL-L: image_url
+
+ratings:
+  User-ID: user_id
+  ISBN: ISBN
+  Book-Rating: rating
