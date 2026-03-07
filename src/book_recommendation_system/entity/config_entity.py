@@ -37,5 +37,32 @@ class DataTransformationConfig:
     local_data_file: list
     processed_data_path: Path
     all_schema: dict
+    final_books_data: Path
+    book_pivot_serial_object: Path
+    book_names_serial_object: Path
+    book_sparse_serial_object: Path
+
+@dataclass()
+class ModelTrainerConfig:
+    """
+    Storing configuration related to model training.
+    """
+    root_dir: Path
+    train_data_path: Path
+    trained_model_name: Path
+
+
+@dataclass()
+class ModelRecommendationConfig:
+    """
+    Storing configuration related to recommendation system.
+    """
+    book_name_serialized_objects: str
+    book_pivot_serialized_objects: str
+    final_books_path: Path
+    trained_model_path: Path
+
+
+
     
 

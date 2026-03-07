@@ -1,9 +1,8 @@
 # Artifacts and logs
-artifacts/
-data/
-logs/
-*.log
 
+artifacts/
+logs/
+*.egg-info
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

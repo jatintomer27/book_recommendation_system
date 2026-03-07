@@ -17,7 +17,9 @@ from book_recommendation_system.utils.common import (
 from book_recommendation_system.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
-    DataTransformationConfig
+    DataTransformationConfig,
+    ModelTrainerConfig,
+    ModelRecommendationConfig
 )
 
 class ConfigurationManager:
@@ -77,7 +79,37 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             local_data_file=config.local_data_file,
             processed_data_path=config.processed_data_path,
-            all_schema=self.schema
+            all_schema=self.schema,
+            final_books_data=config.final_books_data,
+            book_pivot_serial_object=config.book_pivot_serial_object,
+            book_names_serial_object=config.book_names_serial_object,
+            book_sparse_serial_object=config.book_sparse_serial_object
         )
         return data_trasformation_config
+    
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        """
+        Return Model training configuration.
+        """
+        config = self.config.model_trainer
+        create_directory([config.root_dir])
+        model_training_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            trained_model_name=config.trained_model_name
+        )
+        return model_training_config
 
+    def get_model_recommendation_config(self) -> ModelRecommendationConfig:
+        """
+        Return model recommendation config.
+        """
+        model_trainer_config = self.config.model_trainer
+        data_transformation_config = self.config.data_transformation
+        model_recommendation_config = ModelRecommendationConfig(
+            book_name_serialized_objects = data_transformation_config.book_names_serial_object,
+            book_pivot_serialized_objects = data_transformation_config.book_pivot_serial_object,
+            final_books_path = data_transformation_config.final_books_data,
+            trained_model_path = model_trainer_config.trained_model_name
+        )
+        return model_recommendation_config

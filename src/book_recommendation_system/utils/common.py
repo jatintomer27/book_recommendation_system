@@ -83,7 +83,6 @@ def load_json(path: Path) -> ConfigBox:
     logger.info(f"json file loaded succesfully from: {path}")
     return ConfigBox(content)
 
-@ensure_annotations
 def save_bin(data: Any, path: Path):
     """save binary file
 
@@ -95,7 +94,7 @@ def save_bin(data: Any, path: Path):
     logger.info(f"binary file saved at: {path}")
 
 @ensure_annotations
-def load_bin(path: Path) -> Any:
+def load_bin(path: Path):
     """load binary data
 
     Args:
@@ -104,9 +103,15 @@ def load_bin(path: Path) -> Any:
     Returns:
         Any: object stored in the file
     """
-    data = joblib.load(path)
-    logger.info(f"binary file loaded from: {path}")
-    return data
+    try:
+        data = joblib.load(path)
+        logger.info(f"binary file loaded from: {path}")
+        return data
+    except Exception as e:
+        logger.exception(
+            f"Exception occured while loading the binary file {path}"
+        )
+        raise
 
 @ensure_annotations
 def get_size(path:Path)->str:

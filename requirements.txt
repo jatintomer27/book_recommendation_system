@@ -4,6 +4,9 @@ typing
 joblib
 python-box
 ensure
+scipy
+scikit-learn
+streamlit
 kaggle
 PyYAML
 -e .

@@ -30,7 +30,7 @@ class DataValidation:
                     else:
                         msg = f"File: {file} exist in {data_dir} directory"
                     logger.info(msg)
-                    message = f"{msg}\n"     
+                    message += f"{msg}\n"     
             else:
                 validation_status = False
                 message = (
