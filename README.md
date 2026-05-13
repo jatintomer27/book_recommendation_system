@@ -34,6 +34,37 @@
 
 -----
 
+## Kaggle API Setup
+
+- This project downloads dataset files using the Kaggle API, so you need Kaggle credentials.
+
+### Step 1: Generate Kaggle API Token
+
+1. Open https://www.kaggle.com/settings
+2. Scroll to the **API** section
+3. Click **Create New API Token**
+4. A `kaggle.json` file will be downloaded
+
+### Step 2: Place kaggle.json file
+
+#### Linux / Ubuntu / Mac
+
+```bash
+mkdir -p ~/.kaggle
+mv kaggle.json ~/.kaggle/
+chmod 600 ~/.kaggle/kaggle.json
+```
+
+#### Windows
+
+Place the `kaggle.json` file inside:
+
+```text
+C:\Users\<Your-Username>\.kaggle\
+```
+
+-----
+
 ## How to run this project
 
 - Create the virtual environment
@@ -61,7 +92,6 @@ streamlit run app.py
 ```
 
 -----
-
 
 ## Run the App Using Docker Image (No Setup Required)
 
