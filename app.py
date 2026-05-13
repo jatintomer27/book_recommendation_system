@@ -140,6 +140,7 @@ if __name__ == '__main__':
 
     # Main App
     obj = Recommendation()
+    obj.train_engine()
     book_names = load_bin(Path(obj.config.book_name_serialized_objects))
 
     col1, col2 = st.columns([2,1])
