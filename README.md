@@ -51,7 +51,13 @@
 
 ```bash
 mkdir -p ~/.kaggle
+```
+
+```bash
 mv kaggle.json ~/.kaggle/
+```
+
+```bash
 chmod 600 ~/.kaggle/kaggle.json
 ```
 
